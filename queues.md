@@ -668,9 +668,7 @@ You may also `dispatch` a closure and chain the `afterResponse` method onto the 
     use App\Mail\WelcomeMessage;
     use Illuminate\Support\Facades\Mail;
 
-    dispatch(function () {
-        Mail::to('taylor@example.com')->send(new WelcomeMessage);
-    })->afterResponse();
+    dispatch(fn() => Mail::to('taylor@example.com')->send(new WelcomeMessage))->afterResponse();
 
 <a name="synchronous-dispatching"></a>
 ### Synchronous Dispatching
