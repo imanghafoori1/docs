@@ -1388,9 +1388,7 @@ If you would like to construct a more complex condition for the `required_if` ru
     ]);
 
     Validator::make($request->all(), [
-        'role_id' => Rule::requiredIf(function () use ($request) {
-            return $request->user()->is_admin;
-        }),
+        'role_id' => Rule::requiredIf(fn () => $request->user()->is_admin),
     ]);
 
 <a name="rule-required-unless"></a>
